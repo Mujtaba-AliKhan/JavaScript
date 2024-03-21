@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <style>
+      body {
+        background-color: #ffffff;
+      }
+      .bg-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        font-size: 4rem;
+      }
+      .image-slider-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
+      img {
+        height: 400px;
+        width: 400px;
+      }
+      i {
+        font-size: 4rem;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        color: #000000;
+        transform: translateY(-50%);
+      }
+      #left {
+        left: -100px;
+      }
+      #right {
+        right: -100px;
+      }
+      .image-slider-container {
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <div class="heading">
+        <h1>Image Slider</h1>
+      </div>
+      <div class="image-slider-container">
+        <i class="bi bi-chevron-double-left" id="left"></i>
+        <img id="imgEl" src="" alt="" class="imgEl" />
+        <i class="bi bi-chevron-double-right" id="right"></i>
+      </div>
+    </div>
+    <script>
+      let imgArr = [
+        "https://cdn.pixabay.com/photo/2017/09/01/00/15/png-2702691_1280.png",
+        "https://cdn.pixabay.com/photo/2016/03/23/04/57/cat-1274094_640.png",
+        "https://purepng.com/public/uploads/large/purepng.com-catanimalscat-981524673949tj5ns.png",
+        "https://img.freepik.com/premium-photo/birman-sitting-looking_191971-4546.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+        "https://img.freepik.com/premium-photo/british-shorthair-kitten-sitting-looking_191971-4588.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+        "https://img.freepik.com/premium-photo/british-shorthair-kitten-3-5-months-old-sitting-looking-up_191971-4612.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+        "https://img.freepik.com/premium-photo/cute-adult-fluffy-red-cat-sitting-raised-its-front-paws-up_116441-13087.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+        "https://img.freepik.com/premium-photo/bengal-cat-isolated-white-background_183587-3414.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+        "https://img.freepik.com/premium-photo/cute-red-cat-white-surface_96064-799.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+        "https://img.freepik.com/free-psd/beautiful-cat-portrait-isolated_23-2150186143.jpg?size=626&ext=jpg&ga=GA1.1.1789413875.1704725451&semt=ais",
+      ];
+      let image = document.getElementById("imgEl");
+      let leftButton = document.getElementById("left");
+      let rightButton = document.getElementById("right");
+
+      let currentImageIndex = 1;
+
+      function updateImage() {
+        image.src = imgArr[currentImageIndex];
+
+        leftButton.style.display = currentImageIndex === 0 ? "none" : "block";
+        rightButton.style.display =
+          currentImageIndex === imgArr.length - 1 ? "none" : "block";
+      }
+
+      updateImage();
+
+      leftButton.addEventListener("click", function () {
+        if (currentImageIndex > 0) {
+          currentImageIndex--;
+          updateImage();
+        }
+      });
+
+      rightButton.addEventListener("click", function () {
+        if (currentImageIndex < imgArr.length - 1) {
+          currentImageIndex++;
+          updateImage();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varanasi</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .bg-container {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      img {
+        border-radius: 10px;
+        height: 300px;
+      }
+      .bottom-container {
+        background-color: white;
+        text-align: left;
+        height: 25vh;
+        padding: 10px;
+      }
+      .bottom-container button {
+        padding: 10px 75px;
+        border: 1px solid #c3cfce;
+        border-bottom: none;
+        margin-bottom: 20px;
+        background-color: #c3cfce;
+        cursor: pointer;
+        font-size: 20px;
+        border-radius: 5px 5px 0 0;
+      }
+      .button-container {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <div>
+        <h1>Varanasi</h1>
+        <p>
+          The city is very commonly referred to as City of Temples, Holy City of
+          India, Religious Capital of India, and City of Learning.
+        </p>
+
+        <img
+          src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/tabs-varanasi-img.png"
+          alt="varanasi"
+        />
+      </div>
+      <div class="bottom-container">
+        <div class="button-container">
+          <button class="about" id="about" onclick="onabout()">About</button>
+          <button
+            class="time-to-visit"
+            id="timeToVisit"
+            onclick="ontimetovisit()"
+          >
+            Time to Visit
+          </button>
+          <button
+            class="attractions"
+            id="attractions"
+            onclick="onattractions()"
+          >
+            Attractions
+          </button>
+        </div>
+        <div class="description-container">
+          <p id="description">
+            Varanasi is one of the oldest living cities in the world. Its
+            Prominence in Hindy mythology is virtually unrevealed Mark Twain,
+            the English author and literature, who was enthralled by the legend
+            and sanctity od Benarad, once wrote, "Benaras is older than history,
+            older than tradition, older even than legend and looks twice as old
+            as all of them put together."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let about =
+        'Varanasi is one of the oldest living cities in the world. Its Prominence in Hindy mythology is virtually unrevealed Mark Twain, the English author and literature, who was enthralled by the legend and sanctity od Benarad, once wrote, "Benaras is older than history, older than tradition, older even than legend and looks twice as old as all of them put together."';
+      let timeToVisit =
+        "October To March Is the best time to visit Varanasi because most of the fears here are held during this time of the year. festivities begin with Diwali and continue to Dev diwali celebrated on 15th day From Diwali. In between, there is also Annakut. During this time, the ghats are lit with lights and Dias. Earthen lamps adorn The staircase of the ghats and afloat in the river. Firecrackers burn through the night, and it's a sight no one should miss.";
+      let attractions =
+        "When visiting Varanasi, one comes across plenty of ghats, but among them, Dashashwamedh Ghat is said to be one of the oldest and most important. This ghat, leading to the Ganges, is located close to the famous old Vishwanath temple in Kashi (todays Banaras). Another famous attraction is River Ganges which is the holiest river by the Hindus and many more.";
+
+      let description = document.getElementById("description");
+
+      let aboutbtn = document.getElementById("about");
+      let timeToVisitbtn = document.getElementById("timeToVisit");
+      let attractionsbtn = document.getElementById("attractions");
+      aboutbtn.style.backgroundColor = "white";
+
+      function onabout() {
+        description.textContent = about;
+        aboutbtn.style.backgroundColor = "white";
+        timeToVisitbtn.style.backgroundColor = "#c3cfce";
+        attractionsbtn.style.backgroundColor = "#c3cfce";
+      }
+      function ontimetovisit() {
+        description.textContent = timeToVisit;
+        aboutbtn.style.backgroundColor = "#c3cfce";
+        timeToVisitbtn.style.backgroundColor = "white";
+        attractionsbtn.style.backgroundColor = "#c3cfce";
+      }
+      function onattractions() {
+        description.textContent = attractions;
+        aboutbtn.style.backgroundColor = "#c3cfce";
+        timeToVisitbtn.style.backgroundColor = "#c3cfce";
+        attractionsbtn.style.backgroundColor = "white";
+      }
+    </script>
+  </body>
+</html>

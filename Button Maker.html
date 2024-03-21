@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Maker</title>
+    <style>
+      *,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .bg-container {
+        background-image: linear-gradient(to right, #002255, #5173cf);
+        color: white;
+        height: 120vh;
+        text-align: center;
+      }
+      .main-div {
+        display: inline-flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+        /* margin: 2rem; */
+      }
+      label {
+        color: grey;
+        font-weight: 700;
+        text-align: left;
+        font-size: 14px;
+      }
+      input {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        padding: 10px;
+      }
+      .apply-container {
+        text-align: right;
+      }
+      .apply-button {
+        background-color: #2056f7;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+      .apply-button:hover {
+        box-shadow: 1px 1px 10px 0px black;
+      }
+      .apply-button:active {
+        box-shadow: inset 1px 1px 10px 0px rgb(255, 255, 255);
+      }
+      .custom-button {
+        display: flex;
+      }
+      .custom-container {
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1>Button Maker</h1>
+      <div class="main-div">
+        <label for="bgColor">BACKGROUND COLOR</label>
+        <input type="text" id="bgColor" class="bg-color" />
+        <label for="fontColor">FONT COLOR</label>
+        <input type="text" id="fontColor" class="font-color" />
+        <label for="fontSize">FONT SIZE (in px)</label>
+        <input type="text" id="fontSize" class="font-size" />
+        <label for="fontWeight">FONT WEIGHT</label>
+        <input type="text" id="fontWeight" class="font-weight" />
+        <label for="padding">PADDING (in px)</label>
+        <input type="text" id="padding" class="padding" />
+        <label for="borderRadius">BORDER RADIUS</label>
+        <input type="text" id="borderRadius" class="border-radius" />
+        <div class="apply-container">
+          <button id="applyButton" class="apply-button" onclick="onApply()">
+            Apply
+          </button>
+        </div>
+        <div class="custom-container">
+          <button class="custom-button" id="customButton">Custom Button</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let bgColor = document.getElementById("bgColor");
+      let fontColor = document.getElementById("fontColor");
+      let fontSize = document.getElementById("fontSize");
+      let fontWeight = document.getElementById("fontWeight");
+      let padding = document.getElementById("padding");
+      let borderRadius = document.getElementById("borderRadius");
+
+      let customButton = document.getElementById("customButton");
+
+      function onApply() {
+        if (
+          bgColor.value === "" &&
+          fontColor.value === "" &&
+          fontSize.value === "" &&
+          fontWeight.value === "" &&
+          padding.value === "" &&
+          borderRadius.value === ""
+        ) {
+          alert("Please enter the values and apply");
+        } else {
+          customButton.style.backgroundColor = bgColor.value;
+          customButton.style.color = fontColor.value;
+          customButton.style.fontSize = fontSize.value;
+          customButton.style.fontWeight = fontWeight.value;
+          customButton.style.padding = padding.value;
+          customButton.style.borderRadius = borderRadius.value;
+        }
+      }
+    </script>
+  </body>
+</html>

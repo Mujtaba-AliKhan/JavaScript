@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Selector</title>
+    <style>
+      .bg-container {
+        background-color: rgb(183, 208, 208);
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        border-radius: 30px;
+        padding: 20px;
+        text-align: center;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+      }
+      select {
+        font-size: large;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="bg-container">
+        <h1>Select your Pet</h1>
+        <select
+          name=""
+          id="petSelect"
+          class="petSelect"
+          onchange="onselectchange()"
+        >
+          <option value="Dog" id="Dog">Dog</option>
+          <option value="Cat" id="Cat">Cat</option>
+          <option value="Parrot" id="Parrot">Parrot</option>
+          <option value="Spider" id="Spider">Spider</option>
+          <option value="Rabbit" id="Rabbit">Rabbit</option></select
+        ><br />
+        <img src="" alt="" id="petImage" height="400" />
+      </div>
+    </div>
+    <script>
+      let petSelect = document.getElementById("petSelect");
+      let petImage = document.getElementById("petImage");
+
+      petImage.src =
+        "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/select-your-pet-dog-img.png";
+
+      function onselectchange() {
+        switch (petSelect.value) {
+          case "Dog":
+            console.log("Dog");
+            petImage.src =
+              "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/select-your-pet-dog-img.png";
+            break;
+          case "Cat":
+            console.log("Cat");
+            petImage.src =
+              "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/select-your-pet-cat-img.png";
+            break;
+          case "Parrot":
+            console.log("Parrot");
+            petImage.src =
+              "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/select-your-pet-parrot-img.png";
+            break;
+          case "Spider":
+            console.log("Spider");
+            petImage.src =
+              "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/select-your-pet-spider-img.png";
+            break;
+          case "Rabbit":
+            console.log("Rabbit");
+            petImage.src =
+              "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/select-your-pet-rabbit-img.png";
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

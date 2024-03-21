@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Light</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .bg-container {
+        color: #1f1d41;
+        background-color: #86d2f2;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        padding: 20px 0;
+        font-size: 3rem;
+      }
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .main-div {
+        display: flex;
+        margin-top: 30px;
+      }
+      button {
+        background-color: #1f1d41;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 10px;
+        margin-top: 45px;
+      }
+      button:hover {
+        box-shadow: 1px 1px 10px 0 rgb(33, 31, 31);
+      }
+      button:active {
+        box-shadow: inset 1px 1px 3px 0px white;
+      }
+      .light-stand {
+        background-color: #1f1d41;
+        margin: 0 50px;
+        width: 100px;
+        height: 300px;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+      }
+      .light {
+        background-color: #4b5069;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1>Traffic Light</h1>
+      <div class="main-div">
+        <div class="btn-container">
+          <button class="stop-btn" onclick="stop()">Stop</button>
+          <button class="ready-btn" onclick="ready()">Ready</button>
+          <button class="go-btn" onclick="go()">Go</button>
+        </div>
+        <div class="light-stand">
+          <div id="stop" class="light"></div>
+          <div id="ready" class="light"></div>
+          <div id="go" class="light"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let redLight = document.getElementById("stop");
+      let yellowLight = document.getElementById("ready");
+      let greenLight = document.getElementById("go");
+      function stop() {
+        redLight.style.backgroundColor = "#cf1124";
+        yellowLight.style.backgroundColor = "#4b5069";
+        greenLight.style.backgroundColor = "#4b5069";
+      }
+      function ready() {
+        yellowLight.style.backgroundColor = "#f7c948";
+        greenLight.style.backgroundColor = "#4b5069";
+      }
+      function go() {
+        redLight.style.backgroundColor = "#4b5069";
+        yellowLight.style.backgroundColor = "#4b5069";
+        greenLight.style.backgroundColor = "#199473";
+      }
+    </script>
+  </body>
+</html>

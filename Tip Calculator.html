@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <style>
+      *,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .bg-container {
+        background-color: aliceblue;
+        height: 100vh;
+        text-align: center;
+      }
+      img {
+        height: 270px;
+        border-radius: 20px;
+      }
+      h1 {
+        margin: 10px 0;
+      }
+      .formContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      label {
+        text-align: left;
+        margin-bottom: 5px;
+        width: 200px;
+        box-sizing: border-box;
+        color: grey;
+        display: block;
+        font-weight: 700;
+        /* text-align: left; */
+      }
+      input {
+        padding: 2px;
+        margin-bottom: 15px;
+        width: 200px;
+        height: 35px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        box-sizing: border-box;
+      }
+
+      button {
+        padding: 6px 15px;
+        background-color: #1f4a99;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        box-shadow: 1px 1px 10px 0px grey;
+      }
+      button:active {
+        background-color: #058191;
+        border: 2px solid grey;
+      }
+      p {
+        color: red;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <img src="./tip calculator.png" alt="" />
+      <h1>Tip Calculator</h1>
+      <div class="formContainer">
+        <div>
+          <label for="billAmount">BILL AMOUNT</label>
+          <input type="number" id="billAmount" />
+        </div>
+        <div>
+          <label for="percentageTip">PERCENTAGE TIP</label>
+          <input type="number" id="percentageTip" />
+        </div>
+        <div>
+          <label for="tipAmount">TIP AMOUNT</label>
+          <input type="number" id="tipAmount" readonly />
+        </div>
+        <div>
+          <label for="total">TOTAL</label>
+          <input type="number" id="total" readonly />
+        </div>
+      </div>
+      <div class="button-container">
+        <button id="calculate" onclick="calculate()">CALCULATE</button>
+        <button id="reset" onclick="reset()">RESET</button>
+      </div>
+      <p class="error-message" id="errorMessage"></p>
+    </div>
+    <script>
+      let bill = document.getElementById("billAmount");
+      let percentage = document.getElementById("percentageTip");
+      let tip = document.getElementById("tipAmount");
+      let total = document.getElementById("total");
+      let error = document.getElementById("errorMessage");
+
+      function calculate() {
+        if (bill.value === "" || percentage.value === "") {
+          error.textContent = "Please Enter a Valid Input";
+        } else {
+          error.textContent = "";
+          tip.value = bill.value * (percentage.value / 100);
+          updatedTip = parseFloat(tip.value);
+          updatedBill = parseFloat(bill.value);
+          total.value = updatedBill + updatedTip;
+        }
+      }
+      function reset() {
+        bill.value = "";
+        percentage.value = "";
+        tip.value = "";
+        total.value = "";
+      }
+    </script>
+  </body>
+</html>

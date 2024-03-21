@@ -1,0 +1,33 @@
+<!-- /* Problem
+let time = 0 to 24
+
+condition - 1: 0 to 12 => good morning
+condition - 2: >= 12 to < 16 => good afternoon
+condition - 3: >= 16 to < 20 => good evening
+condition - 4: >= 20 to <= 24 => good night
+condition - 5: enter or provide correct time */ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1 - Greetings</title>
+  </head>
+  <body>
+    <script>
+      let time = 23;
+      if (time >= 0 && time <= 11) {
+        console.log("Good Morning 🌅");
+      } else if (time >= 12 && time <= 16) {
+        console.log("Good Afternoon");
+      } else if (time >= 17 && time <= 20) {
+        console.log("Good Evening");
+      }else if (time >= 21 && time <= 23) {
+        console.log("Good Night🌛");
+      }else{
+        console.log("Please enter the time in 24 HRS format");
+      }
+    </script>
+  </body>
+</html>

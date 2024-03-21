@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seasons Switcher</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .imageContainer {
+        display: flex;
+      }
+      @media screen and (max-width: 600px) {
+        .imageContainer {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .buttonContainer {
+        text-align: left;
+      }
+      }
+      .imageContainer img {
+        width: 90%;
+        height: 90%;
+        cursor: pointer;
+      }
+      
+      .buttonContainer {
+        text-align: center;
+      }
+      button {
+        padding: 2% 4%;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin: 0 2%;
+        font-size: 1.1rem;
+      }
+      button:hover {
+        box-shadow: 1px 1px 10px 0 #000000;
+      }
+      button:active {
+        box-shadow: inset 1px 1px 2px 0px #000000;
+      }
+      .spring {
+        background-color: green;
+      }
+      .summer {
+        background-color: #ffd900c0;
+      }
+      .autumn {
+        background-color: #d2691e;
+      }
+      .winter {
+        background-color: #35c5d8;
+      }
+      #imageAlign {
+        display: none;
+        height: 90vh;
+        max-width: 100%;
+        justify-content: center;
+      }
+      #newImg {
+        width: 50%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="imageAlign">
+        <div id="newImg"></div>
+      </div>
+    <div class="bg-container">
+      <div class="imageContainer" id="bgImage">
+        <div id="currentImg">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-spring-xs-img.png"
+            alt="" onclick="spring()"
+          />
+        </div>
+        <div id="currentImg">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-summer-xs-img.png"
+            alt="" onclick="summer()"
+          />
+        </div>
+        <div id="currentImg">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-autumn-xs-img.png"
+            alt="" onclick="autumn()"
+          />
+        </div>
+        <div id="currentImg">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-winter-xs-img.png"
+            alt="" onclick="winter()"
+          />
+        </div>
+      </div>
+      <div class="buttonContainer">
+        <button class="spring" onclick="spring()">Spring</button>
+        <button class="summer" onclick="summer()">Summer</button>
+        <button class="autumn" onclick="autumn()">Autumn</button>
+        <button class="winter" onclick="winter()">Winter</button>
+      </div>
+    </div>
+    <script>
+      let bgChange = document.getElementById("newImg");
+      let currentImg = document.getElementById("bgImage");
+      let imgAlign = document.getElementById("imageAlign");
+      function spring() {
+        bgChange.style.backgroundImage =
+          "url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-spring-md-img.png')";
+        currentImg.style.display = "none";
+        imgAlign.style.display = "flex";
+        document.body.style.backgroundColor = "#71b971"
+      }
+      function summer() {
+        bgChange.style.backgroundImage =
+          "url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-summer-md-img.png')";
+        currentImg.style.display = "none";
+        imgAlign.style.display = "flex";
+        document.body.style.backgroundColor = "#ffee8dc0"
+      }
+      function autumn() {
+        bgChange.style.backgroundImage =
+          "url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-autumn-md-img.png')";
+        currentImg.style.display = "none";
+        imgAlign.style.display = "flex";
+        document.body.style.backgroundColor = "#f9944c"
+      }
+      function winter() {
+        bgChange.style.backgroundImage =
+          "url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/seasons-switcher-winter-md-img.png')";
+        currentImg.style.display = "none";
+        imgAlign.style.display = "flex";
+        document.body.style.backgroundColor = "#a6e1e8"
+}
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Like and Unlike</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <style>
+      *,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .bg-container {
+        text-align: center;
+      }
+      img {
+        height: 80vh;
+        width: 80%;
+      }
+      i {
+        font-size: 4rem;
+        color: #cbd2d9;
+        cursor: pointer;
+      }
+      i:hover{
+       -webkit-text-stroke: 3px #9aa5b1;
+    }
+      button {
+        background-color: #cbd2d9;
+        border: none;
+        color: #9aa5b1;
+        border-radius: 10px;
+        padding: 10px 40px;
+        margin-left: 30px;
+        cursor: pointer;
+      }
+      button:hover {
+        border: 3px solid #9aa5b1;
+      }
+      button:active {
+        background-color: #0967d2;
+        color: white;
+      }
+      i:active {
+        color: #0967d2;
+      }
+      .btn-container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <img
+        src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-img.png"
+        alt=""
+        id="toggleLike"
+      />
+      <div class="btn-container">
+        <i class="bi bi-hand-thumbs-up-fill" onclick="like()" id="likeIcon"></i>
+        <button id="likeButton" onclick="like()">Like</button>
+      </div>
+    </div>
+    <script>
+      let image = document.getElementById("toggleLike");
+      let button = document.getElementById("likeButton");
+      let icon = document.getElementById("likeIcon");
+      function like() {
+        if (
+          image.src ===
+          "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-img.png"
+        ) {
+          image.src =
+            "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-liked-img.png";
+          button.style.backgroundColor = "#0967d2";
+          button.style.color = "white";
+          icon.style.color = "#0967d2";
+        } else {
+          image.src =
+            "https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/white-puppy-img.png";
+          button.style.backgroundColor = "#cbd2d9";
+          button.style.color = "#9aa5b1";
+          icon.style.color = "#cbd2d9";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eve, Odd or Prime number</title>
+  </head>
+  <body>
+    <script>
+      // for(let i=1; i<=100;i++){
+      //     if (i%2==0){
+      //         console.log(`${i} is even`);
+      //     } else{
+      //             console.log(`${i} is odd`);
+      //         }
+      //     }
+
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+          console.log(`${i} is even`);
+        } else {
+          if (isPrime(i)) {
+            console.log(`${i} is prime`);
+          } else {
+            console.log(`${i} is odd`);
+          }
+        }
+      }
+    
+    function isPrime(num) {
+        if (num <= 1) {
+          return false;
+        }
+        for (let j = 2; j <=Math.sqrt(num); j++) {
+          if (num % j === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

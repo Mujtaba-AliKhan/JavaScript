@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Number</title>
+  </head>
+  <body>
+    <script>
+      let isPrime = true;
+      for (let i = 1; i <= 100; i++) {
+        if (i === 1) {
+          console.log("1 neither prime nor composite number");
+        } else if (i > 1) {
+          for (let j = 2; j <= Math.sqrt(i); j++) {
+            if (i % j === 0) {
+              isPrime = false;
+              break;
+            } else {
+              isPrime = true;
+            }
+          }
+
+          if (isPrime) {
+            console.log(`${i} is prime number`);
+          } else {
+            console.log(`${i} is not prime number`);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Counter App</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background-color: hsl(236, 41%, 42%);
+      }
+      .bg-container {
+        display: flex;
+        height: 90vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .bg-container h1 {
+        margin: 30px;
+        font-size: 4rem;
+      }
+      .counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #incrementBtn,
+      #decrementBtn,
+      #reset {
+        padding: 10px 40px;
+        border-radius: 10px;
+        font-size: 40px;
+        background-color: hsl(4, 58%, 56%);
+        color: white;
+        margin: 0 20px;
+      }
+      #reset {
+        font-size: 20px;
+        margin: 30px 0;
+      }
+      #counterValue {
+        height: 60px;
+        width: 150px;
+        border-radius: 10px;
+        background-color: hsl(0, 0%, 0%);
+        color: white;
+        font-weight: 700;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1>Counter</h1>
+      <div class="counter">
+        <button id="decrementBtn" onclick="decrement()">‒</button>
+        <div id="counterValue">0</div>
+        <button id="incrementBtn" onclick="increment()">+</button>
+      </div>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <script>
+      let currentValue = document.getElementById("counterValue");
+      let newValue = parseInt(currentValue.textContent);
+
+      function increment() {
+        newValue++;
+        counterValue.textContent = newValue;
+        colorChange()
+      }
+      function decrement() {
+        newValue--;
+        counterValue.textContent = newValue;
+        colorChange()
+      }
+      function reset() {
+        newValue = 0;
+        counterValue.textContent = newValue;
+        colorChange()
+      }
+
+      function colorChange() {
+        if (newValue > 0) {
+          counterValue.style.color = "#39FF14";
+        } else if (newValue < 0) {
+          counterValue.style.color = "#FF3131";
+        } else if (newValue==0){
+          counterValue.style.color = "white";
+        }
+      }
+    </script>
+  </body>
+</html>

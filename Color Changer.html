@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Changer</title>
+    <style>
+      *,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .bg-container {
+        text-align: center;
+      }
+      .top {
+        font-size: 2rem;
+      }
+      .button {
+        background-color: #358cff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: white;
+        margin-bottom: 1rem;
+      }
+      .button:hover {
+        box-shadow: 1px 1px 10px black;
+      }
+      .button:active {
+        box-shadow: inset 1px 1px 10px #ffffff;
+      }
+      .bgcolor {
+        height: 80vh;
+        /* background-color: antiquewhite; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <div class="top">
+        <h1>Click the below button to change Color</h1>
+        <button class="button" onclick="getRandomColor()">Click Me</button>
+      </div>
+      <div class="bgcolor" id="bgColorContainer"></div>
+    </div>
+    <script>
+      let colorArray = [
+        "#e75d7c",
+        "#b16cef",
+        "#53cca4",
+        "#efc84d",
+        "#628ef0",
+        "#184b73",
+        "#883e7f",
+        "#ed048b",
+      ];
+      let bgColorContainer = document.getElementById("bgColorContainer");
+
+      function getRandomColor() {
+        let randomColorIndex = Math.floor(Math.random() * colorArray.length);
+        bgColorContainer.style.backgroundColor =  colorArray[randomColorIndex] ;
+        console.log(colorArray[randomColorIndex]);
+      }
+    </script>
+  </body>
+</html>

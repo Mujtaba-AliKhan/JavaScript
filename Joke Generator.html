@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke Fetcher</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-image: linear-gradient(to right, #0099ff, #5900ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        height: 350px;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      img {
+        height: 100px;
+      }
+      button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #6e2be2;
+        color: #ffffff;
+        cursor: pointer;
+      }
+      button:active {
+        box-shadow: inset 2px 2px 5px 1px grey;
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000000;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/random-joke-img.png"
+        alt=""
+      />
+      <p id="jokeLabel"></p>
+      <button onclick="fetchJoke()">Joke</button>
+    </div>
+
+    <script>
+      function fetchJoke() {
+        fetch("https://apis.ccbp.in/jokes/random")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            document.getElementById("jokeLabel").innerText = data.value;
+          })
+          .catch(function (error) {
+            console.error("Error fetching joke:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

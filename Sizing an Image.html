@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sizing of Image</title>
+    <style>
+      .bg-container {
+        text-align: center;
+      }
+      img {
+        margin: 20px 0;
+      }
+      .error {
+        font-size: 20px;
+        color: red;
+      }
+      p {
+        font-size: 1.4rem;
+      }
+      .sizeBar {
+        display: inline-flex;
+        font-size: 2rem;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        box-shadow: 1px 1px 10px 0px grey;
+      }
+      .sign {
+        cursor: pointer;
+        font-size: 3rem;
+        font-weight: 900;
+        padding: 1rem;
+        user-select: none;
+      }
+      .sign:active {
+        box-shadow: 1px 1px 10px 0px grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1>Sizing an Image</h1>
+      <p>
+        Increase the width of an image by clicking the Plus button and decrease
+        by clicking the Minus button. For every action, the image increases or
+        decreases by 5px.
+      </p>
+      <p class="error" id="error"></p>
+      <img
+        src="https://www.catster.com/wp-content/uploads/2023/12/white-turkish-angora_TheCats_Shutterstock.jpg"
+        alt="cat"
+        id="image"
+        width="350"
+      />
+          <p class="imageSize" id="imageSize"></p>
+      <br />
+      <div class="sizeBar">
+        <div class="sign" onclick="decreaseSize()">-</div>
+        <div>| 5px |</div>
+        <div class="sign" onclick="increaseSize()">+</div>
+      </div>
+    </div>
+    <script>
+      let image = document.getElementById("image");
+      let imgHeight = image.height;
+      let imgWidth = image.width;
+      let imgSize = document.getElementById("imageSize");
+      let error = document.getElementById("error");
+      imgSize.textContent = "Width: " + imgWidth + " px";
+
+      function updateSize() {
+        imgSize.textContent = "Width: " + imgWidth + " px";
+        if (imgWidth <= 250) {
+          error.textContent = "Warning: Image size is too small.";
+        } else if (imgWidth >= 500) {
+          error.textContent = "Warning: Image size is too big.";
+        } else {
+          error.textContent = "";
+        }
+      }
+
+      function increaseSize() {
+        if (imgWidth >= 500) {
+          return;
+        } else {
+        }
+        imgWidth += 5;
+        image.style.width = imgWidth + "px";
+        updateSize();
+      }
+
+      function decreaseSize() {
+        if (imgWidth <= 250) {
+          return;
+        } else {
+          imgWidth -= 5;
+          image.style.width = imgWidth + "px";
+          updateSize();
+        }
+      }
+    </script>
+  </body>
+</html>

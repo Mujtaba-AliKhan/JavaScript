@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add to Cart</title>
+    <style>
+      body {
+        font-size: large;
+      }
+      button {
+        background-color: #3b80ff;
+        color: white;
+        font-size: 16px;
+        padding: 10px 30px;
+        border-radius: 10px;
+      }
+      #textBox {
+        padding: 10px;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1>Add To Cart</h1>
+      <input type="text" id="textBox" placeholder="Enter the item" />
+      <button class="button" id="button" onclick="addList()">Add</button>
+      <h3>My Cart items</h3>
+      <ol class="list-items" id="listItems"></ol>
+    </div>
+    <script>
+      let listItems = document.getElementById("listItems");
+      let inputText = document.getElementById("textBox");
+      function addList() {
+        if (inputText.value === "") {
+          alert("Invalid Input");
+        } else {
+          let para = document.createElement("li");
+          para.textContent = inputText.value;
+          listItems.appendChild(para);
+          inputText.value = "";
+        }
+      }
+
+      inputText.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          addList();
+        }
+      });
+    </script>
+  </body>
+</html>

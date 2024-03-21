@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Switcher</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .bg-container {
+        padding-top: 100px;
+        background-color: #ffffff;
+        height: 100vh;
+        font-family: "open sans";
+        text-align: center;
+      }
+      h1{
+        font-size: 4rem;
+      }
+      .btn {
+        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        border: 3px solid;
+        cursor: pointer;
+        margin: 10px;
+        font-size: 1rem;
+      }
+      .btn:hover{
+        box-shadow: 1px 1px 10px 0 black;
+      }
+      .btn:active{
+        box-shadow:inset 1px 1px 5px 0 #474747;
+      }
+      .btn1 {
+        background-color: #e0e0e0;
+      }
+      .btn2 {
+        background-color: #6fcf97;
+      }
+      .btn3 {
+        background-color: #56ccf2;
+      }
+      .btn4 {
+        background-color: #bb6bd9;
+      }
+      .bg-color-name {
+        background-color: black;
+        color: white;
+        padding: 1rem 0;
+        font-size: 2rem;
+        font-weight: 700;
+        border-radius: 10px;
+        margin: 20px 0;
+        text-align: center;
+      }
+      #colorName {
+        color: #317ac3;
+      }
+      .para{
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container" id="bgColor">
+      <h1>Color Picker</h1>
+      <div class="button-container">
+        <button class="btn1 btn" onclick="beige()">#e0e0e0</button>
+        <button class="btn2 btn" onclick="green()">#6fcf97</button>
+        <button class="btn3 btn" onclick="blue()">#56ccf2</button>
+        <button class="btn4 btn" onclick="purple()">#bb6bd9</button>
+      </div>
+      <div class="bg-color-name">
+        <span>Background Color : </span><span id="colorName">#ffffff</span>
+      </div>
+      <p class="para">
+        Try clicking on one of the colors above to change the background color
+        of this page!
+      </p>
+    </div>
+    <script>
+        let colorCode = document.getElementById('colorName')
+        let bgColor = document.getElementById('bgColor')
+        function beige(){
+            bgColor.style.backgroundColor = "#e0e0e0"
+            colorCode.textContent = "#e0e0e0"
+        }
+        function green(){
+            bgColor.style.backgroundColor = "#6fcf97"
+            colorCode.textContent = "#6fcf97"
+        }
+        function blue(){
+            bgColor.style.backgroundColor = "#56ccf2"
+            colorCode.textContent = "#56ccf2"
+        }
+        function purple(){
+            bgColor.style.backgroundColor = "#bb6bd9"
+            colorCode.textContent = "#bb6bd9"
+        }
+    </script>
+  </body>
+</html>

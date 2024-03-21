@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Addition Game</title>
+  </head>
+  <body>
+    <h1>Addition Game</h1>
+    <span id="num1">2</span> <span>+</span> <span id="num2">3</span>
+    <span>=</span> <input type="number" id="result" />
+    <button onclick="checkResult()">Check</button>
+    <button onclick="reset()">Reset</button>
+    <p id="verify" style="font-weight: 700"></p>
+
+    <script>
+      let num1 = document.getElementById("num1");
+      let num2 = document.getElementById("num2");
+      let result = document.getElementById("result");
+      let verification = document.getElementById("verify");
+
+      let randomNum1 = Math.ceil(Math.random() * 100);
+      let randomNum2 = Math.floor(Math.random() * 100);
+      num1.textContent = randomNum1;
+      num2.textContent = randomNum2;
+
+      let output = randomNum1 + randomNum2;
+
+      function checkResult() {
+        let finalResult = Number(result.value);
+        if (output === finalResult) {
+          verification.textContent = "Correct";
+        } else if (result.value === "") {
+          alert("Enter a number");
+        } else {
+          verification.textContent = "Incorrect";
+        }
+      }
+      function reset() {
+        result.value = "";
+        randomNum1 = Math.ceil(Math.random() * 100);
+        randomNum2 = Math.floor(Math.random() * 100);
+        num1.textContent = randomNum1;
+        num2.textContent = randomNum2;
+        output = randomNum1 + randomNum2;
+        verification.textContent = "";
+      }
+    </script>
+  </body>
+</html>

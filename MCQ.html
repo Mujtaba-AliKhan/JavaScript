@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCQ</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .bg-container {
+        height: 100vh;
+        background-color: rgb(234, 118, 137);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card-container {
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 30px;
+        line-height: 40px;
+      }
+      h1 {
+        color: white;
+      }
+      button {
+        background-color: dodgerblue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      button:hover {
+        box-shadow: 1px 1px 10px 0 black;
+      }
+      button:active {
+        border: 2px solid dodgerblue;
+        box-shadow: inset 1px 1px 3px 0 white;
+      }
+      form {
+        padding: 0 30px;
+      }
+      p {
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+      label,
+      input {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1>Answer the Question</h1>
+      <div class="card-container">
+        <h2>What is the capital of India?</h2>
+        <form id="myForm">
+          <input type="radio" id="hyd" name="capital" />
+          <label for="hyd">Hyderabad</label><br />
+          <input type="radio" id="che" name="capital" />
+          <label for="che">Chennai</label><br />
+          <input type="radio" id="del" name="capital" />
+          <label for="del">Delhi</label><br />
+          <input type="radio" id="mum" name="capital" />
+          <label for="mum">Mumbai</label><br />
+          <button type="button" id="submitbtn" onclick="isCapital()">
+            Submit
+          </button>
+          <p id="answer"></p>
+        </form>
+      </div>
+    </div>
+    <script>
+      function isCapital() {
+        let hyderabad = document.getElementById("hyd").checked;
+        let chennai = document.getElementById("che").checked;
+        let delhi = document.getElementById("del").checked;
+        let mumbai = document.getElementById("mum").checked;
+        let message = document.getElementById("answer");
+
+        if (hyderabad || chennai || mumbai) {
+          message.style.color = "red";
+          message.textContent = "Incorrect ❌";
+        } else if (delhi) {
+          message.style.color = "green";
+          message.textContent = "Correct ✅";
+        } else {
+          message.style.color = "red";
+          message.textContent = "⚠️Please choose an option";
+        }
+      }
+    </script>
+  </body>
+</html>
